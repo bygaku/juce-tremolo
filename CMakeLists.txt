@@ -1,11 +1,11 @@
 ﻿cmake_minimum_required(VERSION 3.22)
 
-set(PROJECT_NAME "JUCETemplate")
-set(PRODUCT_NAME "JUCETemplate")
+set(PROJECT_NAME "OTremolo")
+set(PRODUCT_NAME "OTremolo")
 set(COMPANY_NAME "bygaku")
 set(COMPANY_CODE "byga")
-set(PLUGIN_CODE "JUCE")
-set(BUNDLE_ID "com.bygaku.JUCETemplate")
+set(PLUGIN_CODE "OTRE")
+set(BUNDLE_ID "com.bygaku.OTremolo")
 
 project(${PROJECT_NAME} VERSION 0.0.1 LANGUAGES CXX)
 
