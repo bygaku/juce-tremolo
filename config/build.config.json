@@ -1,0 +1,8 @@
+{
+  "projectName": "{{PROJECT_NAME}}",
+  "productName": "{{PRODUCT_NAME}}",
+  "generator": "Visual Studio 17 2022",
+  "architecture": "x64",
+  "formats": ["Standalone", "VST3"],
+  "defaultConfig": "Debug"
+}
