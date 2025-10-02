@@ -16,7 +16,7 @@ enum class LFOType {
 
 /** List of waveform types for ComboBox
 */
-ComboBoxItemList<LFOType> lfoTypeList = {
+inline ComboBoxItemList<LFOType> lfoTypeList = {
     { LFOType::kSine,        "Sine" },
     { LFOType::kSquare,      "Square" },
     { LFOType::kTriangle,    "Triangle" },

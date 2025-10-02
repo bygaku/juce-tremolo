@@ -3,14 +3,15 @@
 
 //==============================================================================
 PluginAudioProcessor::PluginAudioProcessor()
-     : AudioProcessor (BusesProperties()
-                     #if ! JucePlugin_IsMidiEffect
-                      #if ! JucePlugin_IsSynth
-                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
-                      #endif
-                       .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
-                     #endif
-                       )
+    : AudioProcessor (BusesProperties()
+                    #if ! JucePlugin_IsMidiEffect
+                    #if ! JucePlugin_IsSynth
+                        .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
+                    #endif
+                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
+                    #endif
+    )
+    , parameters(*this, nullptr, "PARAMETERS", createParameterLayout())
 {
 }
 
@@ -185,4 +186,19 @@ void PluginAudioProcessor::setStateInformation (const void* data, int sizeInByte
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new PluginAudioProcessor();
+}
+
+juce::AudioProcessorValueTreeState::ParameterLayout PluginAudioProcessor::createParameterLayout()
+{
+    std::vector<std::unique_ptr<juce::RangedAudioParameter>> params;
+    
+    // 波形選択（ComboBox用）
+    params.push_back(std::make_unique<juce::AudioParameterChoice>(
+        "waveformType",
+        "Waveform",
+        juce::StringArray{"Sine", "Square", "Triangle", "Saw", "Reverse Saw"},
+        0
+    ));
+    
+    return { params.begin(), params.end() };
 }

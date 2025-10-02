@@ -9,7 +9,8 @@ template <typename T>
 class ComboBoxItemList 
 {
 public:
-    /** an entry in the list */
+    /** an entry in the list
+    */
     struct Entry
     {
         T value;            //! The value
@@ -17,8 +18,8 @@ public:
     };
 
 
-    /** default constructor */ 
-    */
+    /** default constructor 
+    */ 
     ComboBoxItemList() = default;
 
 
@@ -51,7 +52,7 @@ public:
     int valueToId (const T& value) const
     {
         auto it = std::find_if (entries.begin(), entries.end(),
-                                [value](const auto Entry& e) { return e.value == value; });
+                                [value](const auto& e) { return e.value == value; });
                                 
         if (it != entries.end()) {
             return static_cast<int> (std::distance (entries.begin(), it)) + 1;
@@ -78,4 +79,4 @@ public:
 private:
     std::vector<Entry> entries;  //! the list of entries
 
-}
+};
